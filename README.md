@@ -1,63 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FilmArchive
+**A Movie-Tracker Project**
+## Summary:
+- In this project:
+- Have fun navigating through FilmArchive!
 
-## Available Scripts
+Created by:
+- Justin Pyktel: [GitHub](https://github.com/SiimonStark), 
+                [Email](mailto:SiimonStark@gmail.com),
+                [LinkedIn](https://www.linkedin.com/in/justinpyktel/),
+                [Twitter](https://twitter.com/SiimonStark)
+ 
+### Instructrions:
+ - ____
+ - ____
+ - ____
+ 
+### Installation:
+ - Pull down our repo to your local machine
+  - If you haven't already, pullup your Terminal
+ - Run:  **_npm install_**  to download all of the user/devdependencies
+ - Run:  **_npm start_**  to start our webpack server
+ - Open:  http://localhost:3000/   or whatever your port number has been changed too (port = 3000).
+ - **Enjoy!!**
 
-In the project directory, you can run:
+## Tools Used to Build Project
+[React](https://reactjs.org/)
 
-### `npm start`
+[Redux](https://redux.js.org/api/api-reference)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Router](https://www.npmjs.com/package/react-router4)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+[Enzyme](https://airbnb.io/enzyme/) & [Jest](https://airbnb.io/enzyme/docs/guides/jest.html)
 
-### `npm test`
+[SASS/SCSS](https://sass-lang.com/guide)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[VSCode](https://code.visualstudio.com/)
+ 
+ ## Remaining Areas for Improvement
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+##Wireframe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Gif Demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Credits:
+ Turing truly is a great environment to start this journey into our tech careers! The ecosystem of other developers all struggling and learning together builds such a strong emphasis on helping others and yourself to achieve success!!!
 
-## Learn More
+© [Justin Pyktel](https://github.com/SiimonStark)
+© [Brennan Duffey](https://github.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+###
 
 ### Deployment
 
