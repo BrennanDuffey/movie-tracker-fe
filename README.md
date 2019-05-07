@@ -5,6 +5,10 @@
 - Have fun navigating through FilmArchive!
 
 Created by:
+- Brennan Duffey: [GitHub](https://github.com/BrennanDuffey),
+                [Email](mailto:_____@gmail.com),
+                [LinkedIn](https://www.linkedin.com/in/brennan-duffey-8a387182/)
+
 - Justin Pyktel: [GitHub](https://github.com/SiimonStark), 
                 [Email](mailto:SiimonStark@gmail.com),
                 [LinkedIn](https://www.linkedin.com/in/justinpyktel/),
