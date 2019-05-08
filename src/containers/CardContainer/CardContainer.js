@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {addMovies} from '../../actions';
 
 class CardContainer extends Component {
   constructor() {
@@ -9,19 +11,19 @@ class CardContainer extends Component {
   }
 
   render() {
-    // let { title, id, genres, homepage, descript, tagline, releaseDate, backdrop, poster, rating, runtime, loading} = this.props.latest;
+    let { title, id, genres, summary, release, backdrop, poster, rating, loading} = this.props.movies;
     let displayCard;
     this.props.loading ? displayCard = null : displayCard = 
       <article className="SmallCard">
         <div className="image">
         </div>
         <div className="content">
-          <h3>this.props.latest.title</h3>
-          <p>this.props.latest.genres</p>
-          <p>this.props.latest.tagline</p>
+          <h3>{title}</h3>
+          <p>{genres}</p>
+          <p>{summary}</p>
         </div>
         <div className="rating">
-          <h4>3.7</h4>
+          <h4>{rating}</h4>
         </div>
       </article>;
 
@@ -38,4 +40,12 @@ class CardContainer extends Component {
   }
 }
 
-export default CardContainer;
+export const mapStateToProps = (state) => ({
+  movies: state.movies
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  addMovies: (movies) => dispatch(addMovies(movies))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
