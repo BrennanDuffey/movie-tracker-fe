@@ -1,31 +1,25 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {addMovies} from '../../actions';
+import SmallCard from '../../components/SmallCard/SmallCard';
 
 class CardContainer extends Component {
   constructor() {
     super()
     this.state = {
-
     }
   }
-
   render() {
-    let { title, id, genres, summary, release, backdrop, poster, rating, loading} = this.props.movies;
-    let displayCard;
-    this.props.loading ? displayCard = null : displayCard = 
-      <article className="SmallCard">
-        <div className="image">
-        </div>
-        <div className="content">
-          <h3>{title}</h3>
-          <p>{genres}</p>
-          <p>{summary}</p>
-        </div>
-        <div className="rating">
-          <h4>{rating}</h4>
-        </div>
-      </article>;
+    console.log('movies', this.props.movies)
+    let smallCards;
+
+    !this.props.movies.length
+      ? smallCards = null 
+      : smallCards = this.props.movies.map(movie=>
+          (<SmallCard {...movie} />)
+        )
+
+    console.log('killing me smalls', smallCards)
 
     return (
       <main className="CardContainer">
@@ -33,7 +27,7 @@ class CardContainer extends Component {
           <div className="search-icon"></div>
         </header>
         <section className="cards-display">
-          {displayCard}
+          {smallCards}
         </section>
       </main>
     )
