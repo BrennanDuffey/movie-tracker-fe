@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
   width: 90vw;
-  height: 100vh;
+  height: min(100vh);
   display: grid;
   grid-template-rows: 10% 90%;
   background-color: #3a3a3a;
@@ -30,7 +30,9 @@ header {
 
 .cards-display {
   display: flex;
-  margin: 50px max(50px);
+  flex-wrap: wrap;
+  // margin: 50px max(50px);
+  overflow: scroll;
 }
 
 .SmallCard {
@@ -42,6 +44,7 @@ header {
   box-shadow: 0px 4px 4px rgba(157, 157, 157, 0.4);
   width: 250px;
   height: 356px;
+  margin: min(20px) min(20px);
 
     .image {
       content: '';
