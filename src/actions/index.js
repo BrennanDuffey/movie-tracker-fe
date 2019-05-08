@@ -1,4 +1,4 @@
-export const fetchMovies =(newMovies)=>({
+export const addMovies =(newMovies)=>({
   type: "FETCH_MOVIES",
   newMovies
 });
