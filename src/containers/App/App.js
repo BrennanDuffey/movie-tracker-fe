@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { addMovies } from '../../actions';
-import { fetchMovies } from '../../API/apiFetch';
+import {Route, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
-import { APIkey } from '../../API/APIkey';
-import { connect } from 'react-redux';
+import { fetchMovies } from '../../API/apiFetch';
+import { addMovies } from '../../actions';
+import {cleanFetchMovies} from '../../utils/cleaners/cleanMovies';
 
 export class App extends Component {
   constructor() {
@@ -18,8 +19,8 @@ export class App extends Component {
   componentDidMount() {
     fetchMovies()
       .then(list => list.results)
-      .then(movies => this.props.addMovies(movies))
-      // .then(cleanMovies => this.props.addMovies(cleanMovies))
+      .then(movies=> cleanFetchMovies(movies))
+      .then(cleanMovies => this.props.addMovies(cleanMovies))
   }
 
   render(){
@@ -27,10 +28,8 @@ export class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <CardContainer
-          loading= {this.state.isLoading}
-          latest= {this.state.latestFilm} 
-        />
+        <Route path='/' component={CardContainer} />
+        
       </div>
     )
   }
