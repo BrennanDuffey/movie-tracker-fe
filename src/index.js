@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './containers/App/App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { Provider } from 'react-redux';
 import rootReducer from './reducers/';
 
 const store =createStore(rootReducer, composeWithDevTools());
