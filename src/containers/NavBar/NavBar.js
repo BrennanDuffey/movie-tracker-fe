@@ -11,14 +11,13 @@ class NavBar extends Component {
   render(){
     return (
       <nav className="NavBar">
-        <section className="user--container">
           <article className="user--content">
+            <div className="user-img--container"></div>
             <h4>Hi, Name</h4>
           </article>
-        </section>
         <section className="NavButton--container">
           <button>My Favorites</button>
-          <button>All Movies</button>
+          <button className="active">All Movies</button>
           <button>Latest Movies</button>
           <button>History</button>
           <button>Watch List</button>
