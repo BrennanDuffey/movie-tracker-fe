@@ -1,4 +1,4 @@
-export const addMovies =(newMovies)=>({
+export const addMovies = (movies) => ({
   type: "FETCH_MOVIES",
-  newMovies
+  movies
 });

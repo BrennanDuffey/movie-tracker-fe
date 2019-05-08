@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {addMovies} from '../../actions';
-import {fetchMovies} from '../../API/apiFetch';
+import { addMovies } from '../../actions';
+import { fetchMovies } from '../../API/apiFetch';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
-import {APIkey} from '../../API/APIkey';
+import { APIkey } from '../../API/APIkey';
+import { connect } from 'react-redux';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state= {
@@ -15,26 +16,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let URL = 'https://api.themoviedb.org/3/movie/';
-    fetch(`${URL}latest?${APIkey}`)
-      .then(response=> response.json())
-      // .then(results=> console.log(results))
-      .then(results=> this.setState({ 
-        isLoading: false,
-        filmLatest: {
-        title: results.title,
-        id: results.id,
-        genres: results.genres,
-        homepage: results.homepage,
-        descript: results.overview,
-        tagline: results.tagline,
-        releaseDate: results.release_date,
-        backdrop: results.backdrop_path,
-        poster: results.poster_path,
-        rating: results.popularity,
-        runtime: results.runtime
-      }
-      }))
+    fetchMovies()
+      .then(list => list.results)
+      .then(movies => this.props.addMovies(movies))
+      // .then(cleanMovies => this.props.addMovies(cleanMovies))
   }
 
   render(){
@@ -43,11 +28,21 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <CardContainer
-        loading= {this.state.isLoading}
-        latest= {this.state.latestFilm} />
+          loading= {this.state.isLoading}
+          latest= {this.state.latestFilm} 
+        />
       </div>
     )
   }
 }
 
-export default App;
+// export const mapStateToProps = (state) => ({
+//   movies: state.movies
+// })
+
+export const mapDispatchToProps = (dispatch) => ({
+  addMovies: (movies) => dispatch(addMovies(movies))
+});
+
+
+export default connect(null, mapDispatchToProps)(App);
