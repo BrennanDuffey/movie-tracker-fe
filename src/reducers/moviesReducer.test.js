@@ -1,0 +1,1 @@
+import moviesReducer from './moviesReducer';

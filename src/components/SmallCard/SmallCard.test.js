@@ -1,0 +1,1 @@
+import SmallCard from './SmallCard'
