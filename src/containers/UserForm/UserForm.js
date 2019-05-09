@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions';
+
 
 class UserForm extends Component {
   constructor() {
@@ -25,7 +28,7 @@ class UserForm extends Component {
     }
     fetch(urlLogin, init)
       .then(response=> response.json())
-      .then(result=> console.log(result))
+      .then(result=> this.props.loginUser(result.data))
   }
 
   render() {
@@ -41,9 +44,19 @@ class UserForm extends Component {
             onChange={this.handleChange} type="password" value={this.state.password} placeholder="Password" />
           <input type="submit" value="Login" />
         </form>
+        <form>
+          <input name="name" onChange={this.handleChange} type="text" value={this.state.name} placeholder="Name"/>
+          <input name="email" onChange={this.handleChange} type="email" value={this.state.email} placeholder="Email@email.com"/>
+          <input name="password" onChange={this.handleChange} type="password" value={this.state.password} placeholder="Password"/>
+          <input type="submit" value="Sign-Up" />
+        </form>
       </section>
     )
   }
 }
 
-export default UserForm;
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (user) => dispatch(loginUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(UserForm)
