@@ -11,6 +11,6 @@ export const cleanFetchMovies =(movies)=>{
       genres: movie.genres,
       release: movie.release_date,
       id: movie.id
-    }
-  ))
+    };
+  ));
 };
