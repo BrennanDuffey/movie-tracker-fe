@@ -6,7 +6,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import UserForm from '../UserForm/UserForm';
 import { fetchMovies } from '../../API/apiFetch';
 import { addMovies } from '../../actions';
-import {cleanFetchMovies} from '../../utils/cleaners/cleanMovies';
+import { cleanFetchMovies } from '../../utils/cleaners/cleanMovies';
 
 export class App extends Component {
   constructor() {
