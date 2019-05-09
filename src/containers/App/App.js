@@ -3,6 +3,7 @@ import {Route, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
+import UserForm from '../UserForm/UserForm';
 import { fetchMovies } from '../../API/apiFetch';
 import { addMovies } from '../../actions';
 import {cleanFetchMovies} from '../../utils/cleaners/cleanMovies';
@@ -28,8 +29,8 @@ export class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route path='/' component={CardContainer} />
-        
+        <Route exact path='/' component={CardContainer} />
+        <Route exact path='/login' component={UserForm}/>
       </div>
     )
   }
