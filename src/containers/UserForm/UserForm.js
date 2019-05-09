@@ -18,7 +18,7 @@ class UserForm extends Component {
     this.setState({[name]: value});
   }
 
-  handleSubmit=(e)=>{
+  handleLogin=(e)=>{
     e.preventDefault();
     let urlLogin = 'http://localhost:3000/api/users';
     const init = {
@@ -31,23 +31,37 @@ class UserForm extends Component {
       .then(result=> this.props.loginUser(result.data))
   }
 
+  handleSignup=(e)=>{
+    e.preventDefault();
+    console.log(e)
+    let urlLogin = 'http://localhost:3000/api/users/new';
+    const init = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(this.state)
+    }
+    fetch(urlLogin, init)
+      .then(response=> response.json())
+      .then(result=> console.log(result))
+  }
+
   render() {
     console.log('userState',this.state)
     return (
       <section className="UserForm">
-        <form className="existingUser" onSubmit={this.handleSubmit}>
+        <form className="existingUser" onSubmit={this.handleLogin}>
           <input name="name" 
-            onChange={this.handleChange} type="text" value={this.state.name} placeholder="Name" />
+            onChange={this.handleChange} type="text" placeholder="Name" />
           <input name="email" 
-            onChange={this.handleChange} type="email" value={this.state.email} placeholder="Email@email.com" />
+            onChange={this.handleChange} type="email" placeholder="Email@email.com" />
           <input name="password" 
-            onChange={this.handleChange} type="password" value={this.state.password} placeholder="Password" />
+            onChange={this.handleChange} type="password" placeholder="Password" />
           <input type="submit" value="Login" />
         </form>
-        <form>
-          <input name="name" onChange={this.handleChange} type="text" value={this.state.name} placeholder="Name"/>
-          <input name="email" onChange={this.handleChange} type="email" value={this.state.email} placeholder="Email@email.com"/>
-          <input name="password" onChange={this.handleChange} type="password" value={this.state.password} placeholder="Password"/>
+        <form onSubmit={this.handleSignup}>
+          <input name="name" onChange={this.handleChange} type="text" placeholder="Name"/>
+          <input name="email" onChange={this.handleChange} type="email" placeholder="Email@email.com"/>
+          <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
           <input type="submit" value="Sign-Up" />
         </form>
       </section>
