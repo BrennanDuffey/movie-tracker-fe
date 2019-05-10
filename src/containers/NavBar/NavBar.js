@@ -13,7 +13,9 @@ class NavBar extends Component {
     return (
       <nav className="NavBar">
           <article className="user--content">
-            <div className="user-img--container"></div>
+            <div className="user-img--container">
+              <i className="fas signin-icon fa-user-plus"></i>
+            </div>
             <h4>Hi, Name</h4>
           </article>
         <section className="NavButton--container">

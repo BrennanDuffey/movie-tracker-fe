@@ -1,0 +1,62 @@
+.UserForm {
+  background-color: black;
+  width: 89vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    h2 {
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 2px #500000;
+    }
+
+    input {
+      margin: 20px 0;
+      border-radius: 15px;
+      height: 30px;
+      padding: 5px 15px 0 15px;
+      background: #500000;
+      color: white;
+    }
+    input::placeholder {
+      color: silver;
+    }
+    .user-submit {
+      height: 50px;
+      width: 160px;
+      margin: 20px auto;
+    }
+}
+
+.existingUser {
+  display: flex;
+  flex-direction: column;
+  background-color: #3a3a3a;
+  height: 50vh;
+  width: 25vw;
+  border-radius: 35px 0 0 35px;
+  margin: 0 0 0 20px;
+  padding: 20px;
+  border-right: 10px #500000 ridge;
+}
+
+.newUser {
+  display: flex;
+  flex-direction: column;
+  background-color: #970000;
+  height: 50vh;
+  width: 25vw;
+  border-radius: 0 0px 0px 0;
+  margin: 0 20px 0 0;
+  padding: 20px;
+
+    input {
+     background: #3a3a3a;
+    }
+
+    .user-submit {
+      background: #500000;
+    }
+}
+

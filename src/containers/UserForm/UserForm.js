@@ -50,19 +50,21 @@ class UserForm extends Component {
     return (
       <section className="UserForm">
         <form className="existingUser" onSubmit={this.handleLogin}>
+          <h2>Existing User</h2>
           <input name="name" 
             onChange={this.handleChange} type="text" placeholder="Name" />
           <input name="email" 
             onChange={this.handleChange} type="email" placeholder="Email@email.com" />
           <input name="password" 
             onChange={this.handleChange} type="password" placeholder="Password" />
-          <input type="submit" value="Login" />
+          <input className="user-submit" type="submit" value="Login" />
         </form>
-        <form onSubmit={this.handleSignup}>
+        <form className="newUser" onSubmit={this.handleSignup}>
+          <h2>New User: Create Account</h2>
           <input name="name" onChange={this.handleChange} type="text" placeholder="Name"/>
           <input name="email" onChange={this.handleChange} type="email" placeholder="Email@email.com"/>
           <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
-          <input type="submit" value="Sign-Up" />
+          <input className="user-submit" type="submit" value="Sign-Up" />
         </form>
       </section>
     )
