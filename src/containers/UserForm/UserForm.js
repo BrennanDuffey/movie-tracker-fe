@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions';
+import { loginUser, isLoading, errorMessage } from '../../actions';
 
 
 class UserForm extends Component {
@@ -32,7 +32,7 @@ class UserForm extends Component {
 
   handleSignup = async (e) => {
     e.preventDefault();
-    console.log(e)
+    this.props.isLoading(true);
     let urlSignup = 'http://localhost:3000/api/users/new';
     const init = this.createInit(this.state)
     try {
@@ -49,12 +49,9 @@ class UserForm extends Component {
       };
       this.props.loginUser(newUser)
     } catch (error) {
-      console.log(error) 
+      this.props.setErrorMessage('Email already used for an account')
     }
-
-      // .then(response => response.json())
-      // .then(result => result)
-      // .catch(error => console.log(error, "Email Already Linked to an Account"))
+    this.props.isLoading(false)
   }
 
   createInit(body) {
@@ -94,7 +91,9 @@ class UserForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (user) => dispatch(loginUser(user))
+  loginUser: (user) => dispatch(loginUser(user)),
+  isLoading: (bool) => dispatch(isLoading(bool)),
+  setErrorMessage: (message) => dispatch(errorMessage(message))
 });
 
 export default connect(null, mapDispatchToProps)(UserForm)

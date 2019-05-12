@@ -10,7 +10,8 @@ export const cleanFetchMovies =(movies)=>{
       rating: movie.vote_average,
       genres: movie.genres,
       release: movie.release_date,
-      id: movie.id
+      id: movie.id,
+      isFavorite: false
     }
   ))
 };
