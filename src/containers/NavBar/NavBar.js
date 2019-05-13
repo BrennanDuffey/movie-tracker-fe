@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class NavBar extends Component {
   constructor() {
@@ -7,6 +8,10 @@ class NavBar extends Component {
     this.state= {
       isSignedin: ''
     }
+  }
+
+  componentDidMount() {
+    console.log('user', this.props.user);
   }
 
   handleClick=()=>{
@@ -55,4 +60,9 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export const mapStateToProps =(state)=>({
+  user: state.user
+});
+
+
+export default connect(mapStateToProps)(NavBar);
