@@ -24,8 +24,11 @@ class CardContainer extends Component {
     return (
       <main className="CardContainer">
         <header>
-          <div className="search-icon"></div>
+          <div className="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
         </header>
+        <div className="display-divider"></div>
         <section className="cards-display">
           {smallCards}
         </section>

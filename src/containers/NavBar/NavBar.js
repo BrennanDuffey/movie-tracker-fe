@@ -5,16 +5,41 @@ class NavBar extends Component {
   constructor() {
     super()
     this.state= {
-
+      isSignedin: ''
     }
   }
 
+  handleClick=()=>{
+    let stateValue = this.state.isSignedin;
+    this.setState({isSignedin: !stateValue})
+  }
+
+
   render(){
+    let userIcon;
+    let userLink;
+
+    if (this.state.isSignedin) {
+      userIcon = 'fas signin-icon fa-user-minus';
+      userLink = '/signout';
+    } else {
+      userIcon = 'fas signin-icon fa-user-plus';
+      userLink = '/login';
+    }
+
+    this.state.isSignedin
+        ? userIcon = 'fas signin-icon fa-user-minus'
+        : userIcon = 'fas signin-icon fa-user-plus';
+
     return (
       <nav className="NavBar">
           <article className="user--content">
             <div className="user-img--container">
-              <i className="fas signin-icon fa-user-plus"></i>
+            <NavLink 
+              to={userLink}
+              onClick={this.handleClick} className="NavBar-Signout">
+              <i className={userIcon}></i>
+              </NavLink>  
             </div>
             <h4>Hi, Name</h4>
           </article>

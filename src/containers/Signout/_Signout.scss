@@ -1,0 +1,57 @@
+.Signout {
+  background-color: black;
+  width: 89vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+}
+
+.Signout-divider {
+  content: '';
+  height: 5px;
+  width: 80%;
+  background-color: #500000;
+  border-radius: 30%;
+}
+
+.Signout-form {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background-color: #970000;
+  border-radius: 35px;
+  width: 50vw;
+  height: 25vw;
+
+    h2 {
+      color: white;
+      font-size: 35px;
+      text-shadow: .5px .5px 2px black;
+      margin: 0;
+    }
+
+    h4 {
+      text-shadow: .5px .5px 1.8px white;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .user-submit {
+      background: #500000;
+      text-transform: uppercase;
+      color: white;
+      height: 50px;
+      width: 120px;
+      border-radius: 15px;
+
+        &:hover {
+          background: #3a3a3a;
+          box-shadow: 2px 2px 6px white;
+          cursor: pointer;
+        }
+    }
+}

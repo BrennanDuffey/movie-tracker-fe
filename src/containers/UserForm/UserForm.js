@@ -51,19 +51,22 @@ class UserForm extends Component {
       <section className="UserForm">
         <form className="existingUser" onSubmit={this.handleLogin}>
           <h2>Existing User</h2>
-          <input name="name" 
-            onChange={this.handleChange} type="text" placeholder="Name" />
-          <input name="email" 
-            onChange={this.handleChange} type="email" placeholder="Email@email.com" />
-          <input name="password" 
-            onChange={this.handleChange} type="password" placeholder="Password" />
+          <span className="EU-input">
+            <input name="email" 
+              onChange={this.handleChange} type="email" placeholder="Email@email.com" />
+            <input name="password" 
+              onChange={this.handleChange} type="password" placeholder="Password" />
+          </span>
           <input className="user-submit" type="submit" value="Login" />
         </form>
+        <div className="divider"></div>
         <form className="newUser" onSubmit={this.handleSignup}>
           <h2>New User: Create Account</h2>
-          <input name="name" onChange={this.handleChange} type="text" placeholder="Name"/>
-          <input name="email" onChange={this.handleChange} type="email" placeholder="Email@email.com"/>
-          <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+          <span className="EU-input">
+            <input name="name" onChange={this.handleChange} type="text" placeholder="Name"/>
+            <input name="email" onChange={this.handleChange} type="email" placeholder="Email@email.com"/>
+            <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+          </span>
           <input className="user-submit" type="submit" value="Sign-Up" />
         </form>
       </section>
