@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toggleFavorite } from '../../actions';
 
-const SmallCard = ({title, id, genres, summary, release, backdrop, poster, rating, loading, user }) => {
+const SmallCard = ({ title, id, genres, summary, release, backdrop, poster, rating, loading, user, isFavorite, toggleFavorite }) => {
   
   // let genresList;
 
@@ -10,10 +11,31 @@ const SmallCard = ({title, id, genres, summary, release, backdrop, poster, ratin
   //   let genresString = `${genres.name.join(', ')} , and ${lastGenre.name}`;
   //   genresList = <p>Genres: {genresString}</p>
   // }
-  const favoriteCard = (e) => {
+  const handleFavorite = (e) => {
     e.preventDefault();
-    console.log(user)
-    const url = 'http://localhost:3000/api/users/favorites/new'
+    if (!isFavorite) {
+      addFavorite();
+    } else {
+      removeFavorite();
+    }
+  }
+
+  const removeFavorite = async () => {
+    const url = `http://localhost:3000/api/users/${user.id}/favorites/${id}`;
+    const init = { method:'DELETE' }
+    try {
+      const response = await fetch(url, init);
+      if (!response.ok) {
+        throw Error(response.text)
+      }
+      toggleFavorite(id);
+    } catch {
+
+    }
+  }
+
+  const addFavorite = async () => {
+    const url = 'http://localhost:3000/api/users/favorites/new';
     const init = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -27,8 +49,15 @@ const SmallCard = ({title, id, genres, summary, release, backdrop, poster, ratin
         vote_average: rating
       })
     }
-    fetch(url, init)
-    .then(result => console.log(result))
+    try {
+      const response = await fetch(url, init);
+      if(!response.ok) {
+        throw Error(response.statusText)
+      }
+      toggleFavorite(id)
+    } catch {
+      // make something pop up to sat please sign in to favorite
+    }
   }
 
   return (
@@ -50,7 +79,7 @@ const SmallCard = ({title, id, genres, summary, release, backdrop, poster, ratin
       <div className="rating">
         {rating && <h4>{rating}</h4>}
       </div>
-      <button onClick={favoriteCard}>Favorite</button>
+      <button onClick={handleFavorite}>Favorite</button>
     </article>
     
   )
@@ -61,9 +90,10 @@ const mapStateToProps = (state) => ({
   user: state.user
 });
 
-// const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
+  toggleFavorite: (id) => dispatch(toggleFavorite(id))
   // will use this to update movies in state so they become favorited on click
   // will need to update favorited movies on component did mount as well when app is first loaded
-// })
+})
 
-export default connect(mapStateToProps)(SmallCard);
+export default connect(mapStateToProps, mapDispatchToProps)(SmallCard);
