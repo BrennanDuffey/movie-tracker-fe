@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import { loginUser, isLoading, errorMessage } from '../../actions';
-
 
 class UserForm extends Component {
   constructor() {
@@ -11,7 +11,8 @@ class UserForm extends Component {
       email: '',
       password: '',
       errorMessageLogin: '',
-      errorMessageSignup: ''
+      errorMessageSignup: '',
+      successfulLogin: false
     }
   }
 
@@ -24,10 +25,26 @@ class UserForm extends Component {
     e.preventDefault();
     let urlLogin = 'http://localhost:3000/api/users';
     const init = this.createInit(this.state)
-    fetch(urlLogin, init)
-      .then(response=> response.json())
-      .then(result=> this.props.loginUser(result.data))
-      .catch(error => this.setState({errorMessageLogin: "Incorrect Login Information"}))
+    this.fetchData(urlLogin, init)
+      .then(result=> {
+        this.setState({successfulLogin: true})
+        this.props.loginUser(result.data);
+      })
+      .catch(error =>
+        this.setState({ errorMessageLogin: "Incorrect Login Information" })
+      );
+  }
+
+  fetchData=(url, init)=>{
+    return fetch(url, init)
+      .then(response=> {if (!response.ok){
+        console.log(response.ok)
+        throw Error('Error Fetching Data')
+      }else{
+        console.log(response)
+        return response.json()
+      }}
+    )
   }
 
   handleSignup = async (e) => {
@@ -48,6 +65,7 @@ class UserForm extends Component {
         password: this.state.password 
       };
       this.props.loginUser(newUser)
+      this.setState({successfulLogin: true})
     } catch (error) {
       this.props.setErrorMessage('Email already used for an account')
     }
@@ -64,7 +82,11 @@ class UserForm extends Component {
   }
 
   render() {
-    console.log('userState',this.state)
+    console.log('small state', this.state)
+    if (this.state.successfulLogin) {
+      return <Redirect to='/' />
+    }
+
     return (
       <section className="UserForm">
         <form className="existingUser" onSubmit={this.handleLogin}>

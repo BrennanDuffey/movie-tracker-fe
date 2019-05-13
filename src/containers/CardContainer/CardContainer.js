@@ -30,7 +30,7 @@ class CardContainer extends Component {
             <h1>ButterFlix</h1>
           </div>
           <div className="search-icon">
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </div>
         </header>
         <div className="display-divider"></div>
