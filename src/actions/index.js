@@ -21,4 +21,9 @@ export const errorMessage = (errorMessage) => ({
 export const toggleFavorite = (id) => ({
   type: "TOGGLE_FAVORITE",
   id
+}); 
+
+export const signoutUser =(user)=>({
+  type: "SIGNOUT_USER",
+  user
 });
