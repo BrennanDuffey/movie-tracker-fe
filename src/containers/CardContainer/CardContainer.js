@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addMovies} from '../../actions';
+import { addMovies } from '../../actions';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import butterflixMascot from '../../images/character.svg';
 

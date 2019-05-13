@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions';
+import { loginUser, isLoading, errorMessage } from '../../actions';
 
 
 class UserForm extends Component {
@@ -9,7 +9,9 @@ class UserForm extends Component {
     this.state= {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      errorMessageLogin: '',
+      errorMessageSignup: ''
     }
   }
 
@@ -21,28 +23,44 @@ class UserForm extends Component {
   handleLogin=(e)=>{
     e.preventDefault();
     let urlLogin = 'http://localhost:3000/api/users';
-    const init = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(this.state)
-    }
+    const init = this.createInit(this.state)
     fetch(urlLogin, init)
       .then(response=> response.json())
       .then(result=> this.props.loginUser(result.data))
+      .catch(error => this.setState({errorMessageLogin: "Incorrect Login Information"}))
   }
 
-  handleSignup=(e)=>{
+  handleSignup = async (e) => {
     e.preventDefault();
-    console.log(e)
-    let urlLogin = 'http://localhost:3000/api/users/new';
+    this.props.isLoading(true);
+    let urlSignup = 'http://localhost:3000/api/users/new';
+    const init = this.createInit(this.state)
+    try {
+      const response = await fetch(urlSignup, init)
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const result = await response.json();
+      const newUser = { 
+        id: result.id, 
+        name: this.state.name, 
+        email: this.state.email, 
+        password: this.state.password 
+      };
+      this.props.loginUser(newUser)
+    } catch (error) {
+      this.props.setErrorMessage('Email already used for an account')
+    }
+    this.props.isLoading(false)
+  }
+
+  createInit(body) {
     const init = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(body)
     }
-    fetch(urlLogin, init)
-      .then(response=> response.json())
-      .then(result=> console.log(result))
+    return init
   }
 
   render() {
@@ -68,6 +86,7 @@ class UserForm extends Component {
             <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
           </span>
           <input className="user-submit" type="submit" value="Sign-Up" />
+          {this.state.errorMessageSignup && <p>{this.state.errorMessageSignup}</p>}
         </form>
       </section>
     )
@@ -75,7 +94,9 @@ class UserForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (user) => dispatch(loginUser(user))
+  loginUser: (user) => dispatch(loginUser(user)),
+  isLoading: (bool) => dispatch(isLoading(bool)),
+  setErrorMessage: (message) => dispatch(errorMessage(message))
 });
 
 export default connect(null, mapDispatchToProps)(UserForm)
