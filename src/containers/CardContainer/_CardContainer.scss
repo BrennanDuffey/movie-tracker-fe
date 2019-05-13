@@ -50,6 +50,25 @@ header {
           color: silver;
         }
     }
+
+
+    .title {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 15px;
+
+        h1 {
+          color: #970000;
+          font-size: 34px;
+        }
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
 }
 
 .cards-display {
