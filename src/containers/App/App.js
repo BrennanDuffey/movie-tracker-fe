@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
 import UserForm from '../UserForm/UserForm';
+import Signout from '../Signout/Signout';
 import { fetchMovies } from '../../API/apiFetch';
 import { addMovies } from '../../actions';
 import { cleanFetchMovies } from '../../utils/cleaners/cleanMovies';
@@ -31,6 +32,7 @@ export class App extends Component {
         <NavBar />
         <Route exact path='/' component={CardContainer} />
         <Route exact path='/login' component={UserForm}/>
+        <Route exact path='/signout' component={Signout}/>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {addMovies} from '../../actions';
 import SmallCard from '../../components/SmallCard/SmallCard';
+import butterflixMascot from '../../images/character.svg';
 
 class CardContainer extends Component {
   constructor() {
@@ -24,8 +25,15 @@ class CardContainer extends Component {
     return (
       <main className="CardContainer">
         <header>
-          <div className="search-icon"></div>
+          <div className="title">
+            <img src={butterflixMascot} alt="butterflix-fairy-mascot"/>
+            <h1>ButterFlix</h1>
+          </div>
+          <div className="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
         </header>
+        <div className="display-divider"></div>
         <section className="cards-display">
           {smallCards}
         </section>
