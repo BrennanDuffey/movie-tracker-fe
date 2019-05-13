@@ -8,12 +8,17 @@ export const loginUser = (user) => ({
   user
 });
 
-export const isLoading = (bool) => ({
+export const isLoading = (isLoading) => ({
   type: "IS_LOADING",
-  isLoading: bool
+  isLoading
 });
 
 export const errorMessage = (errorMessage) => ({
   type: "SET_ERROR_MESSAGE",
   errorMessage
+});
+
+export const toggleFavorite = (id) => ({
+  type: "TOGGLE_FAVORITE",
+  id
 });
