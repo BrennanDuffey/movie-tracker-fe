@@ -9,7 +9,7 @@ const moviesReducer = (state= [], action)=>{
         }
         return movie
       })
-      return newState
+      return newState;
     default: return state;
   }
 }

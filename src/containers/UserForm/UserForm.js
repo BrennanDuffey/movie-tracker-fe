@@ -110,7 +110,7 @@ class UserForm extends Component {
           <span className="EU-input">
             <input
               name="name"
-              maxlength="10"
+              maxLength="10"
               onChange={this.handleChange}
               type="text"
               placeholder="Name"

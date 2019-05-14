@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
+import BigCard from "../../components/BigCard/BigCard";
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
 import { fetchMovies } from '../../API/apiFetch';
@@ -30,6 +31,7 @@ export class App extends Component {
       <div className="App">
         <NavBar />
         <Route exact path='/' component={CardContainer} />
+        <Route path={`/movie/`} component={BigCard} />
         <Route exact path='/login' component={UserForm}/>
         <Route exact path='/signout' component={Signout}/>
       </div>

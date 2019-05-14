@@ -16,7 +16,7 @@ class CardContainer extends Component {
     !this.props.movies.length
       ? smallCards = null 
       : smallCards = this.props.movies.map(movie=>
-          (<SmallCard {...movie} key={movie.id} />)
+          (<SmallCard movie={movie} key={movie.id} />)
         )
 
     return (
