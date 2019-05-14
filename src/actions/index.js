@@ -23,7 +23,6 @@ export const toggleFavorite = (id) => ({
   id
 }); 
 
-export const signoutUser =(user)=>({
-  type: "SIGNOUT_USER",
-  user
+export const signoutUser =()=>({
+  type: "SIGNOUT_USER"
 });

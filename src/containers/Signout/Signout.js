@@ -1,12 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Redirect } from "react-router-dom";
 import {signoutUser} from '../../actions';
 
 class Signout extends Component {
+  constructor(){
+    super()
+    this.state={
+      loggedOut: false
+    }
+  }
+
   handleSubmit=(e)=>{
     e.preventDefault();
+    this.props.signoutUser();
+    this.setState({loggedOut: true})
   }
   render() {
+    if (this.state.loggedOut) {
+      return <Redirect to='/' />
+    }
+
     return (
       <section className="Signout">
         <form className="Signout-form" onSubmit={this.handleSubmit}>
@@ -24,7 +38,7 @@ class Signout extends Component {
 }
 
 const mapDispatchToProps =(dispatch)=> ({
-  signoutUser: (user)=> dispatch(signoutUser(user))
+  signoutUser: ()=> dispatch(signoutUser())
 });
 
 export default connect(null, mapDispatchToProps)(Signout);

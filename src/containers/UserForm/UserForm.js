@@ -38,10 +38,8 @@ class UserForm extends Component {
   fetchData=(url, init)=>{
     return fetch(url, init)
       .then(response=> {if (!response.ok){
-        console.log(response.ok)
         throw Error('Error Fetching Data')
       }else{
-        console.log(response)
         return response.json()
       }}
     )
@@ -82,7 +80,6 @@ class UserForm extends Component {
   }
 
   render() {
-    console.log('small state', this.state)
     if (this.state.successfulLogin) {
       return <Redirect to='/' />
     }
@@ -92,26 +89,52 @@ class UserForm extends Component {
         <form className="existingUser" onSubmit={this.handleLogin}>
           <h2>Existing User</h2>
           <span className="EU-input">
-            <input name="email" 
-              onChange={this.handleChange} type="email" placeholder="Email@email.com" />
-            <input name="password" 
-              onChange={this.handleChange} type="password" placeholder="Password" />
+            <input
+              name="email"
+              onChange={this.handleChange}
+              type="email"
+              placeholder="Email@email.com"
+            />
+            <input
+              name="password"
+              onChange={this.handleChange}
+              type="password"
+              placeholder="Password"
+            />
           </span>
           <input className="user-submit" type="submit" value="Login" />
         </form>
-        <div className="divider"></div>
+        <div className="divider" />
         <form className="newUser" onSubmit={this.handleSignup}>
           <h2>New User: Create Account</h2>
           <span className="EU-input">
-            <input name="name" onChange={this.handleChange} type="text" placeholder="Name"/>
-            <input name="email" onChange={this.handleChange} type="email" placeholder="Email@email.com"/>
-            <input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+            <input
+              name="name"
+              maxlength="10"
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              name="email"
+              onChange={this.handleChange}
+              type="email"
+              placeholder="Email@email.com"
+            />
+            <input
+              name="password"
+              onChange={this.handleChange}
+              type="password"
+              placeholder="Password"
+            />
           </span>
           <input className="user-submit" type="submit" value="Sign-Up" />
-          {this.state.errorMessageSignup && <p>{this.state.errorMessageSignup}</p>}
+          {this.state.errorMessageSignup && (
+            <p>{this.state.errorMessageSignup}</p>
+          )}
         </form>
       </section>
-    )
+    );
   }
 }
 

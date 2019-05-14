@@ -26,6 +26,7 @@
   border-radius: 35px;
   width: 50vw;
   height: 25vw;
+  box-shadow: black 5px 5px 10px;
 
     h2 {
       color: white;
@@ -35,7 +36,8 @@
     }
 
     h4 {
-      text-shadow: .5px .5px 1.8px white;
+      color: white;
+      text-shadow: .5px .5px 1.8px black;
       font-size: 22px;
       margin: 0;
     }

@@ -16,7 +16,7 @@
   top: 9.5%;
   left: 1%;
   position: absolute;
-  width: 88%;
+  width: 95%;
   height: 5px;
   z-index: 4;
   background-color: #500000;
@@ -33,23 +33,23 @@ header {
   align-items: center;
   padding: 20px 5%;
 
-    .search-icon {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3;
-      content: '';
-      height: 50px;
-      width: 50px;
-      background-color: #500000;
-      box-shadow: 2px 2px 10px rgba(157, 157, 157, 0.4);
-      border-radius: 50%;
+    // .search-icon {
+    //   position: relative;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   z-index: 3;
+    //   content: '';
+    //   height: 50px;
+    //   width: 50px;
+    //   background-color: #500000;
+    //   box-shadow: 2px 2px 10px rgba(157, 157, 157, 0.4);
+    //   border-radius: 50%;
 
-        .fa-search {
-          color: silver;
-        }
-    }
+    //     .fa-search {
+    //       color: silver;
+    //     }
+    // }
 
 
     .title {
@@ -74,6 +74,7 @@ header {
 .cards-display {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 max(5%);
   // margin: 50px max(50px);
   overflow: scroll;
 }

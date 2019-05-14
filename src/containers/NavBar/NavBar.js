@@ -10,21 +10,17 @@ class NavBar extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('user', this.props.user);
-  }
-
   handleClick=()=>{
     let stateValue = this.state.isSignedin;
     this.setState({isSignedin: !stateValue})
   }
 
-
   render(){
+    let {name} = this.props.user;
     let userIcon;
     let userLink;
 
-    if (this.state.isSignedin) {
+    if (name) {
       userIcon = 'fas signin-icon fa-user-minus';
       userLink = '/signout';
     } else {
@@ -32,21 +28,17 @@ class NavBar extends Component {
       userLink = '/login';
     }
 
-    this.state.isSignedin
-        ? userIcon = 'fas signin-icon fa-user-minus'
-        : userIcon = 'fas signin-icon fa-user-plus';
-
     return (
       <nav className="NavBar">
           <article className="user--content">
-            <div className="user-img--container">
-            <NavLink 
+          <NavLink 
               to={userLink}
               onClick={this.handleClick} className="NavBar-Signout">
               <i className={userIcon}></i>
-              </NavLink>  
-            </div>
-            <h4>Hi, Name</h4>
+              {!name && 
+                <h4>Hi, Signin</h4>}
+                {name && <h4>Hi, {name}</h4>}
+          </NavLink>  
           </article>
         <section className="NavButton--container">
           <NavLink to="/" className="NavBar-links">In Theaters</NavLink>
