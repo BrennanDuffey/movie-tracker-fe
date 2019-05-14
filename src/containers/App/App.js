@@ -7,7 +7,7 @@ import BigCard from "../../components/BigCard/BigCard";
 import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
-import { fetchMovies } from '../../API/apiFetch';
+import { fetchMovies } from '../../utils/apiCalls/apiCalls';
 import { addMovies } from '../../actions';
 import { cleanFetchMovies } from '../../utils/cleaners/cleanMovies';
 

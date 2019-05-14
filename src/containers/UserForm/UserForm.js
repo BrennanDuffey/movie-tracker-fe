@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import { loginUser, isLoading, errorMessage, setFavorites } from '../../actions';
+import { signupFetch } from '../../utils/apiCalls/apiCalls'
+
 
 class UserForm extends Component {
   constructor() {
@@ -29,7 +31,7 @@ class UserForm extends Component {
       console.log(favorites)
       this.props.setFavorites(favorites)
     } catch {
-
+      this.props.setErrorMessage('Error in fetching user favorites')
     }
   }
 
@@ -61,14 +63,9 @@ class UserForm extends Component {
   handleSignup = async (e) => {
     e.preventDefault();
     this.props.isLoading(true);
-    let urlSignup = 'http://localhost:3000/api/users/new';
     const init = this.createInit(this.state)
     try {
-      const response = await fetch(urlSignup, init)
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const result = await response.json();
+      const result = await signupFetch(init);
       const newUser = { 
         id: result.id, 
         name: this.state.name, 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Route, NavLink} from 'react-router-dom';
-import { toggleFavorite, grabCurrMovie } from '../../actions';
+import { toggleFavorite, grabCurrMovie, errorMessage } from '../../actions';
 import BigCard from '../BigCard/BigCard';
+import { deleteFavoriteFetch, addFavoriteFetch } from '../../utils/apiCalls/apiCalls'
 
 
 class SmallCard extends Component {
@@ -31,22 +32,17 @@ class SmallCard extends Component {
   removeFavorite = async () => {
     let { user, toggleFavorite } = this.props;
     let { id } = this.props.movie
-    const url = `http://localhost:3000/api/users/${user.id}/favorites/${id}`;
-    const init = { method:'DELETE' }
     try {
-      const response = await fetch(url, init);
-      if (!response.ok) {
-        throw Error(response.text)
-      }
+      const response = deleteFavoriteFetch(user.id, id)
       toggleFavorite(id);
     } catch {
-
+      console.log('Error in deleting favorite');
     }
   }
 
   addFavorite = async () => {
-    let { user, toggleFavorite } = this.props;
-    let {title, id, summary, poster, release, rating} = this.props.movie;
+    let { user, toggleFavorite, setErrorMessage } = this.props;
+    let { title, id, summary, poster, release, rating } = this.props.movie;
     const url = 'http://localhost:3000/api/users/favorites/new';
     const init = {
       method: 'POST',
@@ -62,13 +58,11 @@ class SmallCard extends Component {
       })
     }
     try {
-      const response = await fetch(url, init);
-      if(!response.ok) {
-        throw Error(response.statusText)
-      }
+      const result = await addFavoriteFetch(url, init)
       toggleFavorite(id)
     } catch {
-      // make something pop up to sat please sign in to favorite
+      setErrorMessage('Please sign in to favorite')
+      window.alert(this.props.errorMessage)
     }
   }
 
@@ -115,11 +109,13 @@ class SmallCard extends Component {
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
-  user: state.user
+  user: state.user,
+  errorMessage: state.errorMessage
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleFavorite: (id) => dispatch(toggleFavorite(id)),
+  setErrorMessage: (message) => dispatch(errorMessage(message)),
   // will use this to update movies in state so they become favorited on click
   // will need to update favorited movies on component did mount as well when app is first loaded
   grabCurrMovie: (movie)=> dispatch(grabCurrMovie(movie))

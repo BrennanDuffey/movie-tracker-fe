@@ -1,4 +1,4 @@
-import { APIkey } from './APIkey.js'
+import { APIkey } from '../../API/APIkey.js'
 
 export const fetchMovies = () => {
   const url = 'https://api.themoviedb.org/3/movie/'
