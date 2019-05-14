@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {Route, NavLink} from 'react-router-dom';
 import { toggleFavorite, grabCurrMovie, errorMessage } from '../../actions';
 import BigCard from '../BigCard/BigCard';
-import { deleteFavoriteFetch, addFavoriteFetch } from '../../utils/apiCalls/apiCalls'
+import { deleteFavoriteFetch, agnosticFetch } from '../../utils/apiCalls/apiCalls'
 
 
 class SmallCard extends Component {
@@ -30,13 +30,13 @@ class SmallCard extends Component {
   }
 
   removeFavorite = async () => {
-    let { user, toggleFavorite } = this.props;
+    let { user, toggleFavorite, setErrorMessage } = this.props;
     let { id } = this.props.movie
     try {
       const response = deleteFavoriteFetch(user.id, id)
       toggleFavorite(id);
     } catch {
-      console.log('Error in deleting favorite');
+      setErrorMessage('Error in deleting favorite');
     }
   }
 
@@ -58,7 +58,7 @@ class SmallCard extends Component {
       })
     }
     try {
-      const result = await addFavoriteFetch(url, init)
+      const result = await agnosticFetch(url, init)
       toggleFavorite(id)
     } catch {
       setErrorMessage('Please sign in to favorite')

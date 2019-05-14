@@ -23,23 +23,14 @@ export const deleteFavoriteFetch = (user_id, movie_id) => {
   })
 };
 
-export const addFavoriteFetch = (url, init) => {
+export const agnosticFetch = (url, init) => {
   return fetch(url, init)
   .then(response => {
     if (!response.ok) {
       throw Error(response)
-    };
-  })
-};
-
-export const signupFetch = (init) => {
-  const url = 'http://localhost:3000/api/users/new';
-  return fetch(url, init)
-  .then(response => {
-    if (!response.ok) {
-      throw Error(response.statusText)
     } else {
       return response.json()
     };
   })
 };
+
