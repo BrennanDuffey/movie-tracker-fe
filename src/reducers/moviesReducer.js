@@ -4,6 +4,7 @@ const moviesReducer = (state= [], action)=>{
       return action.movies;
     case 'TOGGLE_FAVORITE':
       let newState = [...state].map(movie => {
+        console.log(action.id)
         if (movie.id === action.id) {
           movie.isFavorite = !movie.isFavorite
         }
