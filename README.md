@@ -45,17 +45,17 @@ Created by:
 
 ## Screenshots
 
-##Wireframe
+  - Wireframe
 
 <img width="583" alt="image" src="https://user-images.githubusercontent.com/23123990/57731631-53677700-7658-11e9-93ae-3739b1d86d1b.png">
 
 <img width="583" alt="image" src="https://user-images.githubusercontent.com/23123990/57731644-5b271b80-7658-11e9-8c5d-1ad8b524df61.png">
 
 
-## Page
+  - Page
 
 
-## Gif Demo
+  - Gif Demo
 
 
 ## Credits:
