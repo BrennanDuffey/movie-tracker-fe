@@ -23,7 +23,12 @@ export const toggleFavorite = (id) => ({
   id
 }); 
 
-export const signoutUser =(user)=>({
+export const signoutUser = (user) => ({
   type: "SIGNOUT_USER",
   user
 });
+
+export const setFavorites = (favorites) => ({
+  type: "SET_FAVORITES",
+  favorites
+})
