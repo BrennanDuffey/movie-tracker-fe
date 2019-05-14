@@ -20,7 +20,7 @@ class SmallCard extends Component {
   handleFavorite = (e) => {
     e.preventDefault();
     console.log(this.props.movie)
-    let {isFavorite} = this.props.movie;
+    let { isFavorite } = this.props.movie;
     if (!isFavorite) {
       this.addFavorite();
     } else {
@@ -29,7 +29,8 @@ class SmallCard extends Component {
   }
 
   removeFavorite = async () => {
-    let {user, id} = this.props;
+    let { user, toggleFavorite } = this.props;
+    let { id } = this.props.movie
     const url = `http://localhost:3000/api/users/${user.id}/favorites/${id}`;
     const init = { method:'DELETE' }
     try {
@@ -44,7 +45,7 @@ class SmallCard extends Component {
   }
 
   addFavorite = async () => {
-    let {user} = this.props;
+    let { user, toggleFavorite } = this.props;
     let {title, id, summary, poster, release, rating} = this.props.movie;
     const url = 'http://localhost:3000/api/users/favorites/new';
     const init = {
@@ -72,8 +73,8 @@ class SmallCard extends Component {
   }
 
   render() {
-    let movie = this.props.movie
-    let { title, id, summary, poster, rating } = movie;
+    let { movie } = this.props
+    let { title, id, summary, poster, rating } = this.props.movie;
     return (
       <NavLink className="small-link" to={`/movie/${id}`}>
         <article

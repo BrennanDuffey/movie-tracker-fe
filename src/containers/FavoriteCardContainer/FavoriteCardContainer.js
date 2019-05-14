@@ -6,8 +6,8 @@ import butterflixMascot from '../../images/character.svg';
 const FavoriteCardContainer = ({ movies }) => {
   
   let smallCards = movies
-  .filter(movie => movie.isFavorite)
-  .map(movie=> (<SmallCard {...movie} />))
+    .filter(movie => movie.isFavorite)
+    .map(movie=> (<SmallCard movie={movie} key={movie.id} />))
   return (
       <main className="CardContainer">
         <header>
