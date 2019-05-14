@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {grabCurrMovie} from '../../actions';
+import {NavLink, Redirect} from 'react-router-dom';
 
-class BigCard extends Component{
+export class BigCard extends Component{
   constructor(props){
     super(props)
     this.state={
@@ -11,15 +11,11 @@ class BigCard extends Component{
     }
   }
 
-  componentDidMount() {
-    console.log(this.props.movie)
-  }
-
   render() {
     let {title, poster, backdrop, summary, genres, rating, release, isFavorite} = this.props.movie
 
     if (this.props.movie === {}) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
 
     return(
@@ -36,17 +32,18 @@ class BigCard extends Component{
         </article>
         { rating && <h2>{rating}</h2>}
         { poster && <img src={poster} alt={title} />}
+        <NavLink to='/'>X</NavLink>
       </section>
     )
   }
+}
+
+BigCard.propTypes= {
+  movie: PropTypes.object
 }
 
 const mapStateToProps =(state)=>({
   movie: state.currMovie
 });
 
-const mapDispatchToProps =(dispatch)=>({
-  grabCurrMovie: ({})=> dispatch(grabCurrMovie({}))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(BigCard); 
+export default connect(mapStateToProps)(BigCard); 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SmallCard from '../../components/SmallCard/SmallCard';
+import SmallCard from '../SmallCard/SmallCard';
 import butterflixMascot from '../../images/character.svg';
 
 const FavoriteCardContainer = ({ movies }) => {
