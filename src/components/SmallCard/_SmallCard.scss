@@ -8,3 +8,11 @@
     z-index: 5;
   }
 }
+
+.fave-true {
+  color: rgb(232, 181, 27);
+
+  &:hover {
+    color: rgb(91, 91, 91);
+  }
+}

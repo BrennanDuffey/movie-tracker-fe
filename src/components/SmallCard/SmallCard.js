@@ -74,7 +74,9 @@ class SmallCard extends Component {
 
   render() {
     let { movie } = this.props
-    let { title, id, summary, poster, rating } = this.props.movie;
+    let { title, id, summary, poster, rating, isFavorite } = this.props.movie;
+    let favClass = `${isFavorite}`;
+
     return (
       <NavLink className="small-link" to={`/movie/${id}`}>
         <article
@@ -96,7 +98,7 @@ class SmallCard extends Component {
           </div>
           <div className="rating">{rating && <h4>{rating}</h4>}</div>
           <button className="faveBtn" onClick={this.handleFavorite}>
-            <i className="fas fa-star" />
+            <i className={`fas fa-star fave-${favClass}`} />
           </button>
           <Route
             path={`/movie/`}
