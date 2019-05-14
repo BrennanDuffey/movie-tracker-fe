@@ -45,7 +45,7 @@ class NavBar extends Component {
           </NavLink>  
           </article>
         <section className="NavButton--container">
-          <NavLink to="/" className="NavBar-links">In Theaters</NavLink>
+          <NavLink exact to="/" className="NavBar-links">In Theaters</NavLink>
           <NavLink to="/favorites" className="NavBar-links">Favorites</NavLink>
           <button onClick={this.comingSoon}>Latest Movies</button>
           <button onClick={this.comingSoon}>History</button>

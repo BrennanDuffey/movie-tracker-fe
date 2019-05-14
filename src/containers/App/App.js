@@ -7,17 +7,13 @@ import BigCard from "../BigCard/BigCard";
 import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
-import { fetchMovies } from '../../API/apiFetch';
+import { fetchMovies } from '../../utils/apiCalls/apiCalls';
 import { addMovies } from '../../actions';
 import { cleanFetchMovies } from '../../utils/cleaners/cleanMovies';
 
 export class App extends Component {
   constructor() {
-    super()
-    this.state= {
-      isLoading: true,
-      filmLatest: {}
-    }
+    super();
   }
 
   componentDidMount() {
@@ -25,6 +21,7 @@ export class App extends Component {
       .then(list => list.results)
       .then(movies=> cleanFetchMovies(movies))
       .then(cleanMovies => this.props.addMovies(cleanMovies))
+      .catch(error => console.log('Error in fetching movies from DB'))
   }
 
   render(){
@@ -41,9 +38,6 @@ export class App extends Component {
   }
 }
 
-// export const mapStateToProps = (state) => ({
-//   movies: state.movies
-// })
 
 export const mapDispatchToProps = (dispatch) => ({
   addMovies: (movies) => dispatch(addMovies(movies))
