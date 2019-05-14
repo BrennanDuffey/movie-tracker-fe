@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { toggleFavorite } from '../../actions';
+import {Route, NavLink} from 'react-router-dom';
+import { toggleFavorite, grabCurrMovie } from '../../actions';
+import BigCard from '../BigCard/BigCard';
 
-const SmallCard = ({ title, id, genres, summary, release, backdrop, poster, rating, loading, user, isFavorite, toggleFavorite }) => {
+
+class SmallCard extends Component {
+  constructor(props) {
+    super();
+  }
   
   // let genresList;
 
@@ -11,16 +17,19 @@ const SmallCard = ({ title, id, genres, summary, release, backdrop, poster, rati
   //   let genresString = `${genres.name.join(', ')} , and ${lastGenre.name}`;
   //   genresList = <p>Genres: {genresString}</p>
   // }
-  const handleFavorite = (e) => {
+  handleFavorite = (e) => {
     e.preventDefault();
+    console.log(this.props.movie)
+    let {isFavorite} = this.props.movie;
     if (!isFavorite) {
-      addFavorite();
+      this.addFavorite();
     } else {
-      removeFavorite();
+      this.removeFavorite();
     }
   }
 
-  const removeFavorite = async () => {
+  removeFavorite = async () => {
+    let {user, id} = this.props;
     const url = `http://localhost:3000/api/users/${user.id}/favorites/${id}`;
     const init = { method:'DELETE' }
     try {
@@ -34,7 +43,9 @@ const SmallCard = ({ title, id, genres, summary, release, backdrop, poster, rati
     }
   }
 
-  const addFavorite = async () => {
+  addFavorite = async () => {
+    let {user} = this.props;
+    let {title, id, summary, poster, release, rating} = this.props.movie;
     const url = 'http://localhost:3000/api/users/favorites/new';
     const init = {
       method: 'POST',
@@ -60,29 +71,45 @@ const SmallCard = ({ title, id, genres, summary, release, backdrop, poster, rati
     }
   }
 
-  return (
-    <article className="SmallCard">
-      <div className="image--container">
-        {poster && <img src={poster} alt={title} />}
-      </div>
-      <div className="content">
-        {title && <h3>{title}</h3>}
-        {summary && 
-          <span className="sub-content">
-            <div className="sub-border"></div>
-            <p>{summary.slice(0,50)}</p>
-            <p className="showmore">... (Show More)</p>
-          </span>
-        }
-
-      </div>
-      <div className="rating">
-        {rating && <h4>{rating}</h4>}
-      </div>
-      <button onClick={handleFavorite}>Favorite</button>
-    </article>
-    
-  )
+  render() {
+    let movie = this.props.movie
+    let { title, id, summary, poster, rating } = movie;
+    return (
+      <NavLink className="small-link" to={`/movie/${id}`}>
+        <article
+          className="SmallCard"
+          onClick={() => this.props.grabCurrMovie(movie)}
+        >
+          <div className="image--container">
+            {poster && <img src={poster} alt={title} />}
+          </div>
+          <div className="content">
+            {title && <h3>{title}</h3>}
+            {summary && (
+              <span className="sub-content">
+                <div className="sub-border" />
+                <p>{summary.slice(0, 50)}</p>
+                <p className="showmore">... (Show More)</p>
+              </span>
+            )}
+          </div>
+          <div className="rating">{rating && <h4>{rating}</h4>}</div>
+          <button className="faveBtn" onClick={this.handleFavorite}>
+            <i className="fas fa-star" />
+          </button>
+          <Route
+            path={`/movie/`}
+            render={({ match }) => (
+              <BigCard
+                {...movie.find(mov => mov.id === match.params.id)}
+                movie={this.props.movie}
+              />
+            )}
+          />
+        </article>
+      </NavLink>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
@@ -91,9 +118,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleFavorite: (id) => dispatch(toggleFavorite(id))
+  toggleFavorite: (id) => dispatch(toggleFavorite(id)),
   // will use this to update movies in state so they become favorited on click
   // will need to update favorited movies on component did mount as well when app is first loaded
+  grabCurrMovie: (movie)=> dispatch(grabCurrMovie(movie))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SmallCard);

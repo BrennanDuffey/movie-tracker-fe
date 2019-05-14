@@ -3,9 +3,9 @@ export const addMovies = (movies) => ({
   movies
 });
 
-export const loginUser = (user) => ({
-  type: "LOGIN_USER",
-  user
+export const grabCurrMovie =(movie)=>({
+  type: "GRAB_MOVIE",
+  movie
 });
 
 export const isLoading = (isLoading) => ({
@@ -22,10 +22,14 @@ export const toggleFavorite = (id) => ({
   type: "TOGGLE_FAVORITE",
   id
 }); 
-
-export const signoutUser = (user) => ({
-  type: "SIGNOUT_USER",
+        
+export const loginUser = (user) => ({
+  type: "LOGIN_USER",
   user
+});
+        
+export const signoutUser =()=>({
+  type: "SIGNOUT_USER"
 });
 
 export const setFavorites = (favorites) => ({

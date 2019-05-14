@@ -35,7 +35,8 @@
 .divider {
   content: '';
   position: absolute;
-  width: 3px;
+  left: 49.78%;
+  width: 5px;
   height: 45%;
   border-radius: 30%;
   background-color: #500000;
@@ -52,6 +53,7 @@
   height: 50vh;
   width: 25vw;
   padding: 20px;
+  box-shadow: black 5px 5px 10px;
 
     input {
       background: #3a3a3a;

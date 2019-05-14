@@ -11,24 +11,20 @@ class CardContainer extends Component {
     }
   }
   render() {
-    console.log('movies', this.props.movies)
     let smallCards;
 
     !this.props.movies.length
       ? smallCards = null 
       : smallCards = this.props.movies.map(movie=>
-          (<SmallCard {...movie} />)
+          (<SmallCard movie={movie} key={movie.id} />)
         )
-      
+
     return (
       <main className="CardContainer">
         <header>
           <div className="title">
             <img src={butterflixMascot} alt="butterflix-fairy-mascot"/>
             <h1>ButterFlix</h1>
-          </div>
-          <div className="search-icon">
-            <i className="fas fa-search"></i>
           </div>
         </header>
         <div className="display-divider"></div>
