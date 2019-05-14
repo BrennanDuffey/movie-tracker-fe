@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BigCard should match snapshot 1`] = `
+<section
+  className="BigCard"
+>
+  <article
+    className="big-main"
+  >
+    <img
+      alt="Backdrop Unavailable"
+      className="backdrop"
+      src="http"
+    />
+    <h2>
+      movie
+      <span>
+        (
+        2000
+        )
+      </span>
+    </h2>
+    <p>
+      words
+    </p>
+    <p>
+      action
+    </p>
+  </article>
+  <h2>
+    9.9
+  </h2>
+  <img
+    alt="movie"
+    src="http"
+  />
+  <NavLink
+    to="/"
+  >
+    X
+  </NavLink>
+</section>
+`;

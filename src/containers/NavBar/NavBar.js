@@ -15,6 +15,10 @@ class NavBar extends Component {
     this.setState({isSignedin: !stateValue})
   }
 
+  comingSoon=()=>{
+    window.alert('Feature Coming Soon');
+  }
+
   render(){
     let {name} = this.props.user;
     let userIcon;
@@ -43,9 +47,9 @@ class NavBar extends Component {
         <section className="NavButton--container">
           <NavLink to="/" className="NavBar-links">In Theaters</NavLink>
           <NavLink to="/favorites" className="NavBar-links">Favorites</NavLink>
-          <button>Latest Movies</button>
-          <button>History</button>
-          <button>Watch List</button>
+          <button onClick={this.comingSoon}>Latest Movies</button>
+          <button onClick={this.comingSoon}>History</button>
+          <button onClick={this.comingSoon}>Watch List</button>
         </section>
       </nav>
     )

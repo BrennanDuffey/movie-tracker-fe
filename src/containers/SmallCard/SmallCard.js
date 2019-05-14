@@ -4,8 +4,7 @@ import {Route, NavLink} from 'react-router-dom';
 import { toggleFavorite, grabCurrMovie } from '../../actions';
 import BigCard from '../BigCard/BigCard';
 
-
-class SmallCard extends Component {
+export class SmallCard extends Component {
   constructor(props) {
     super();
   }
@@ -104,7 +103,7 @@ class SmallCard extends Component {
             path={`/movie/`}
             render={({ match }) => (
               <BigCard
-                {...movie.find(mov => mov.id === match.params.id)}
+                
                 movie={this.props.movie}
               />
             )}

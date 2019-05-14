@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallCard should render to the dom correctly 1`] = `
+<NavLink
+  className="small-link"
+  to="/movie/69"
+>
+  <article
+    className="SmallCard"
+    onClick={[Function]}
+  >
+    <div
+      className="image--container"
+    >
+      <img
+        alt="movie"
+        src="http"
+      />
+    </div>
+    <div
+      className="content"
+    >
+      <h3>
+        movie
+      </h3>
+      <span
+        className="sub-content"
+      >
+        <div
+          className="sub-border"
+        />
+        <p>
+          words
+        </p>
+        <p
+          className="showmore"
+        >
+          ... (Show More)
+        </p>
+      </span>
+    </div>
+    <div
+      className="rating"
+    >
+      <h4>
+        9.9
+      </h4>
+    </div>
+    <button
+      className="faveBtn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-star fave-false"
+      />
+    </button>
+    <Route
+      path="/movie/"
+      render={[Function]}
+    />
+  </article>
+</NavLink>
+`;

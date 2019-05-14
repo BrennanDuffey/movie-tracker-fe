@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
-import BigCard from "../../components/BigCard/BigCard";
+import BigCard from "../BigCard/BigCard";
 import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
