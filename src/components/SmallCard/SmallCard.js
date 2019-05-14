@@ -76,7 +76,10 @@ class SmallCard extends Component {
     let { title, id, summary, poster, rating } = movie;
     return (
       <NavLink className="small-link" to={`/movie/${id}`}>
-        <article className="SmallCard" onClick={()=> this.props.grabCurrMovie(movie)}>
+        <article
+          className="SmallCard"
+          onClick={() => this.props.grabCurrMovie(movie)}
+        >
           <div className="image--container">
             {poster && <img src={poster} alt={title} />}
           </div>
@@ -90,15 +93,19 @@ class SmallCard extends Component {
               </span>
             )}
           </div>
-          <div className="rating">
-            {rating && <h4>{rating}</h4>}
-          </div>
-          <button onClick={this.handleFavorite}>
-            Favorite
+          <div className="rating">{rating && <h4>{rating}</h4>}</div>
+          <button className="faveBtn" onClick={this.handleFavorite}>
+            <i className="fas fa-star" />
           </button>
-          <Route path={`/movie/`} render={
-            ({match}) => <BigCard {...movie.find(mov => mov.id === match.params.id)} movie={this.props.movie} />
-          }/>
+          <Route
+            path={`/movie/`}
+            render={({ match }) => (
+              <BigCard
+                {...movie.find(mov => mov.id === match.params.id)}
+                movie={this.props.movie}
+              />
+            )}
+          />
         </article>
       </NavLink>
     );

@@ -157,17 +157,32 @@ header {
 
     .rating {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      bottom: 10px;
+      left: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 24px;
+      font-size: 20px;
       background: #970000;
       box-shadow: 0px 4px 4px #000000;
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       color: white;
+    }
+
+    .faveBtn {
+      position: absolute;
+      z-index: 5;
+      color: silver;
+      font-size: 25px;
+      bottom: 10px;
+      left: 50px;
+      background: none;
+      border: none;
+
+      &:hover {
+        color: red;
+      }
     }
 }

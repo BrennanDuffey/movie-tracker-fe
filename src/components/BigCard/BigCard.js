@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import {grabCurrMovie} from '../../actions';
 
 class BigCard extends Component{
@@ -16,10 +17,17 @@ class BigCard extends Component{
 
   render() {
     let {title, poster, backdrop, summary, genres, rating, release, isFavorite} = this.props.movie
+
+    if (this.props.movie === {}) {
+      return <Redirect to='/' />
+    }
+
     return(
       <section className="BigCard">
         <article className="big-main">
-          { title && 
+          { backdrop && <img className="backdrop" src={backdrop} alt="Backdrop Unavailable" />}
+        { isFavorite && <i>Heart</i>}
+        { title && 
             <h2>{title} 
               <span>({release})</span>
             </h2>}
@@ -28,8 +36,6 @@ class BigCard extends Component{
         </article>
         { rating && <h2>{rating}</h2>}
         { poster && <img src={poster} alt={title} />}
-        { backdrop && <img src={backdrop} alt="Backdrop Unavailable" />}
-        { isFavorite && <i>Heart</i>}
       </section>
     )
   }
