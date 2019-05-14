@@ -19,9 +19,7 @@ class CardContainer extends Component {
       : smallCards = this.props.movies.map(movie=>
           (<SmallCard {...movie} />)
         )
-
-    console.log('killing me smalls', smallCards)
-
+      
     return (
       <main className="CardContainer">
         <header>
