@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import { loginUser, isLoading, errorMessage, setFavorites } from '../../actions';
+import { agnosticFetch } from '../../utils/apiCalls/apiCalls'
+
 
 class UserForm extends Component {
   constructor() {
@@ -10,8 +12,6 @@ class UserForm extends Component {
       name: '',
       email: '',
       password: '',
-      errorMessageLogin: '',
-      errorMessageSignup: '',
       successfulLogin: false
     }
   }
@@ -24,51 +24,37 @@ class UserForm extends Component {
   fetchFavorites = async (id) => {
     const url = `http://localhost:3000/api/users/${id}/favorites`
     try {
-      const response = await this.fetchData(url, null)
+      const response = await agnosticFetch(url, null)
       const favorites = await response.data
-      console.log(favorites)
       this.props.setFavorites(favorites)
     } catch {
-
+      this.props.setErrorMessage('Error in fetching user favorites')
     }
   }
 
-  handleLogin=(e)=>{
+  handleLogin = (e) =>{
     e.preventDefault();
-    let urlLogin = 'http://localhost:3000/api/users';
+    const url = 'http://localhost:3000/api/users';
     const init = this.createInit(this.state)
-    this.fetchData(urlLogin, init)
+    agnosticFetch(url, init)
       .then(result => {
         this.setState({successfulLogin: true})
         this.props.loginUser(result.data);
         this.fetchFavorites(result.data.id)
       })
-      .catch(error =>
-        this.setState({ errorMessageLogin: "Incorrect Login Information" })
-      );
-  }
-
-  fetchData = (url, init) => {
-    return fetch(url, init)
-      .then(response=> {if (!response.ok){
-        throw Error('Error Fetching Data')
-      }else{
-        return response.json()
-      }}
-    )
-  }
+      .catch(error => {
+        this.props.setErrorMessage('Incorrect email/password combination')
+        window.alert(this.props.errorMessage)
+      });
+  };
 
   handleSignup = async (e) => {
     e.preventDefault();
     this.props.isLoading(true);
-    let urlSignup = 'http://localhost:3000/api/users/new';
+    const url = 'http://localhost:3000/api/users/new';
     const init = this.createInit(this.state)
     try {
-      const response = await fetch(urlSignup, init)
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const result = await response.json();
+      const result = await agnosticFetch(url, init);
       const newUser = { 
         id: result.id, 
         name: this.state.name, 
@@ -79,9 +65,10 @@ class UserForm extends Component {
       this.setState({successfulLogin: true})
     } catch (error) {
       this.props.setErrorMessage('Email already used for an account')
+      window.alert(this.props.errorMessage)
     }
     this.props.isLoading(false)
-  }
+  };
 
   createInit(body) {
     const init = {
@@ -90,7 +77,7 @@ class UserForm extends Component {
       body: JSON.stringify(body)
     }
     return init
-  }
+  };
 
   render() {
     if (this.state.successfulLogin) {
@@ -142,9 +129,6 @@ class UserForm extends Component {
             />
           </span>
           <input className="user-submit" type="submit" value="Sign-Up" />
-          {this.state.errorMessageSignup && (
-            <p>{this.state.errorMessageSignup}</p>
-          )}
         </form>
       </section>
     );
