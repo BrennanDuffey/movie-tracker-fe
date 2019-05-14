@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
-import { loginUser, isLoading, errorMessage } from '../../actions';
+import { loginUser, isLoading, errorMessage, setFavorites } from '../../actions';
 
 class UserForm extends Component {
   constructor() {
@@ -16,9 +16,21 @@ class UserForm extends Component {
     }
   }
 
-  handleChange=(e)=>{
+  handleChange = (e) => {
     let {name, value} = e.target;
     this.setState({[name]: value});
+  }
+
+  fetchFavorites = async (id) => {
+    const url = `http://localhost:3000/api/users/${id}/favorites`
+    try {
+      const response = await this.fetchData(url, null)
+      const favorites = await response.data
+      console.log(favorites)
+      this.props.setFavorites(favorites)
+    } catch {
+
+    }
   }
 
   handleLogin=(e)=>{
@@ -26,16 +38,17 @@ class UserForm extends Component {
     let urlLogin = 'http://localhost:3000/api/users';
     const init = this.createInit(this.state)
     this.fetchData(urlLogin, init)
-      .then(result=> {
+      .then(result => {
         this.setState({successfulLogin: true})
         this.props.loginUser(result.data);
+        this.fetchFavorites(result.data.id)
       })
       .catch(error =>
         this.setState({ errorMessageLogin: "Incorrect Login Information" })
       );
   }
 
-  fetchData=(url, init)=>{
+  fetchData = (url, init) => {
     return fetch(url, init)
       .then(response=> {if (!response.ok){
         throw Error('Error Fetching Data')
@@ -141,7 +154,8 @@ class UserForm extends Component {
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(loginUser(user)),
   isLoading: (bool) => dispatch(isLoading(bool)),
-  setErrorMessage: (message) => dispatch(errorMessage(message))
+  setErrorMessage: (message) => dispatch(errorMessage(message)),
+  setFavorites: (favorites) => dispatch(setFavorites(favorites))
 });
 
 export default connect(null, mapDispatchToProps)(UserForm)

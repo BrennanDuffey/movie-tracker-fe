@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import CardContainer from '../CardContainer/CardContainer';
 import BigCard from "../../components/BigCard/BigCard";
+import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
 import { fetchMovies } from '../../API/apiFetch';
@@ -34,6 +35,7 @@ export class App extends Component {
         <Route path={`/movie/`} component={BigCard} />
         <Route exact path='/login' component={UserForm}/>
         <Route exact path='/signout' component={Signout}/>
+        <Route exact path='/favorites' component={FavoriteCardContainer} />
       </div>
     )
   }
