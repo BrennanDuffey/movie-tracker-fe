@@ -12,8 +12,6 @@ class UserForm extends Component {
       name: '',
       email: '',
       password: '',
-      errorMessageLogin: '',
-      errorMessageSignup: '',
       successfulLogin: false
     }
   }
@@ -34,7 +32,7 @@ class UserForm extends Component {
     }
   }
 
-  handleLogin=(e)=>{
+  handleLogin = (e) =>{
     e.preventDefault();
     const url = 'http://localhost:3000/api/users';
     const init = this.createInit(this.state)
@@ -131,9 +129,6 @@ class UserForm extends Component {
             />
           </span>
           <input className="user-submit" type="submit" value="Sign-Up" />
-          {this.state.errorMessageSignup && (
-            <p>{this.state.errorMessageSignup}</p>
-          )}
         </form>
       </section>
     );
