@@ -1,8 +1,8 @@
 ## ButterFlix
 **A Movie-Tracker Project**
 ## Summary:
-- In this project:
-- Have fun navigating through FilmArchive!
+- Ever see a movie come out in theaters, yet you don't have the time to see it during it's release?
+- Welcome to Butterflix, where you can "Track your Movies"! See the latest releases, updated through the MovieDatabase API. Favorite, add to wishlist, or track movies.
 
 Created by:
 - Brennan Duffey: [GitHub](https://github.com/BrennanDuffey),
@@ -13,11 +13,6 @@ Created by:
                 [Email](mailto:SiimonStark@gmail.com),
                 [LinkedIn](https://www.linkedin.com/in/justinpyktel/),
                 [Twitter](https://twitter.com/SiimonStark)
- 
-### Instructrions:
- - ____
- - ____
- - ____
  
 ### Installation:
  - Pull down our repo to your local machine
@@ -54,19 +49,22 @@ Created by:
 
   ### Page
   
-<img width="1439" alt="image" src="https://user-images.githubusercontent.com/23123990/57737325-8580d500-7668-11e9-8a56-74b95717838d.png">
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/23123990/57737325-8580d500-7668-11e9-8a56-74b95717838d.png">
 
-<img width="1439" alt="image" src="https://user-images.githubusercontent.com/23123990/57737407-da245000-7668-11e9-9fe4-3b0f398a5d0b.png">
+<img width="1000" alt="image" src="https://user-images.githubusercontent.com/23123990/57737407-da245000-7668-11e9-9fe4-3b0f398a5d0b.png">
 
 <img width="1439" alt="image" src="https://user-images.githubusercontent.com/23123990/57737623-8d8d4480-7669-11e9-8951-96403ccc2e33.png">
 
   - Gif Demo
+  
+  <img width="1439" alt="image" src="https://media.giphy.com/media/dZX36qqyVF2itSWzyi/giphy.mp4">
 
 
 ## Credits:
  Turing truly is a great environment to start this journey into our tech careers! The ecosystem of other developers all struggling and learning together builds such a strong emphasis on helping others and yourself to achieve success!!!
 
 © [Justin Pyktel](https://github.com/SiimonStark)
+    "Ask me about the Mascot inspiration!"
 © [Brennan Duffey](https://github.com/)
 
 ###
