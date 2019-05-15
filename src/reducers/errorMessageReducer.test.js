@@ -4,7 +4,7 @@ import * as actions from '../actions';
 describe('errorMessageReducer', () => {
   it('Should return the default state', () => {
     const expected = '';
-    const result = errorMessageReducer(undefined, '');
+    const result = errorMessageReducer(undefined, {});
     expect(result).toEqual(expected);
   });
 
@@ -16,7 +16,7 @@ describe('errorMessageReducer', () => {
 
   it('Should be able to update state', () => {
     const previousState = 'I LOVE TESTING';
-    const expected = 'JK I REALLY LOVE TESTING'
+    const expected = 'JK I REALLY LOVE TESTING';
     const result = errorMessageReducer(previousState, actions.errorMessage('JK I REALLY LOVE TESTING'));
     expect(result).toEqual(expected);
   });
