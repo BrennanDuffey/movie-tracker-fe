@@ -1,33 +1,95 @@
+main {
+  position: relative;
+  box-sizing: border-box;
+  width: 90vw;
+  height: min(100vh);
+  display: grid;
+  grid-template-rows: 10% 90%;
+  background-color: #3a3a3a;
+  background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  backdrop-filter: 80%;
+}
+
 .BigCard {
   background-color: #500000;
   border-radius: 30px;
-  position: relative;
-  top: 20%;
-  left: 30%;
-  width: 70vw;
-  height: 60vh;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 60vw;
+  height: 50vh;
   z-index: 15;
   color: silver;
+  box-shadow: 5px 5px 10px black;
 
-  & > {
-    position: relative;
-    z-index: 10;
-  }
 
   h2 {
-    position: relative;
-    font-size: 40px;
-    z-index: 10;
+    font-size: 28px;
     margin: 0;
   }
 
   .backdrop {
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 100%;
     z-index: 2;
-    border-radius: 40px;
+    border-right: 12px outset #690e0eb7;
+    border-radius: 0px 120px 120px 0px;
   }
 
+  .big-content{
+    position: absolute;
+    z-index: 10;
+    width: 40%;
+    right: 5%;
+    top: 15%;
+  }
+
+  .big-subcontent {
+    border-top: 3px solid silver;
+    border-bottom: 3px solid silver;
+    max-height: 150px;
+    overflow: scroll;
+  }
+
+  .close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    text-decoration: none;
+    color: black;
+    font-size: 27px;
+    text-shadow: .5px .5px 5px gray;
+    height: 30px; width: 30px;
+    border-radius: 50%;
+  }
+
+  .faveBtn {
+    position: absolute;
+    right: 5%;
+    bottom:5%;
+    font-size: 27px;
+    z-index: 15;
+    color: silver;
+    background: none;
+    border: none;
+
+    &:hover {
+      color: rgb(232, 181, 27);
+    }
+  }
+
+  .fave-true {
+  color: rgb(232, 181, 27);
+
+  &:hover {
+    color: rgb(91, 91, 91);
+  }
 }
+}
+
 

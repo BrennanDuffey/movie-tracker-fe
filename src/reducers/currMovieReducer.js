@@ -3,7 +3,7 @@ const currMovieReducer = (state = {}, action)=>{
     case 'GRAB_MOVIE':
       return {...action.movie};
     default: 
-      return {};
+      return state;
   }
 }
 
