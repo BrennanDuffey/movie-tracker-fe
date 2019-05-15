@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signout should match snapshot 1`] = `
+<section
+  className="Signout"
+>
+  <form
+    className="Signout-form"
+    onSubmit={[Function]}
+  >
+    <h2>
+      Leaving so soon?
+    </h2>
+    <div
+      className="Signout-divider"
+    />
+    <span
+      className="h-group"
+    >
+      <h4>
+        Click the button below,
+      </h4>
+      <h4>
+        To signout of ButterFlix
+      </h4>
+    </span>
+    <input
+      className="user-submit"
+      type="submit"
+      value="Signout"
+    />
+  </form>
+</section>
+`;

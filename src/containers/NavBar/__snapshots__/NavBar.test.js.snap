@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should match snapshot, w/ user signed in 1`] = `
+<nav
+  className="NavBar"
+>
+  <article
+    className="user--content"
+  >
+    <NavLink
+      className="NavBar-Signout"
+      to="/signout"
+    >
+      <i
+        className="fas signin-icon fa-user-minus"
+      />
+      <h4>
+        Hi, 
+        Abc
+      </h4>
+    </NavLink>
+  </article>
+  <section
+    className="NavButton--container"
+  >
+    <NavLink
+      className="NavBar-links"
+      exact={true}
+      to="/"
+    >
+      In Theaters
+    </NavLink>
+    <NavLink
+      className="NavBar-links"
+      to="/favorites"
+    >
+      Favorites
+    </NavLink>
+    <button
+      onClick={[Function]}
+    >
+      Latest Movies
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      History
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      Watch List
+    </button>
+  </section>
+</nav>
+`;
+
+exports[`NavBar should match snapshot, w/ user signed out 1`] = `
+<nav
+  className="NavBar"
+>
+  <article
+    className="user--content"
+  >
+    <NavLink
+      className="NavBar-Signout"
+      to="/login"
+    >
+      <i
+        className="fas signin-icon fa-user-plus"
+      />
+      <h4>
+        Please Signin
+      </h4>
+    </NavLink>
+  </article>
+  <section
+    className="NavButton--container"
+  >
+    <NavLink
+      className="NavBar-links"
+      exact={true}
+      to="/"
+    >
+      In Theaters
+    </NavLink>
+    <NavLink
+      className="NavBar-links"
+      to="/favorites"
+    >
+      Favorites
+    </NavLink>
+    <button
+      onClick={[Function]}
+    >
+      Latest Movies
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      History
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      Watch List
+    </button>
+  </section>
+</nav>
+`;

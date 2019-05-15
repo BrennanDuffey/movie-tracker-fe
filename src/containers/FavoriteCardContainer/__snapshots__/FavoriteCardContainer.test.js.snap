@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteCardContainer should match snapshot 1`] = `
+<main
+  className="CardContainer"
+>
+  <header>
+    <div
+      className="title"
+    >
+      <img
+        alt="butterflix-fairy-mascot"
+        src="character.svg"
+      />
+      <h1>
+        ButterFlix
+      </h1>
+    </div>
+    <div
+      className="search-icon"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </div>
+  </header>
+  <div
+    className="display-divider"
+  />
+  <section
+    className="cards-display"
+  >
+    <ConnectFunction
+      key="69"
+      movie={
+        Object {
+          "backdrop": "http",
+          "genres": Array [
+            "action",
+          ],
+          "id": 69,
+          "isFavorite": true,
+          "poster": "http",
+          "rating": 9.9,
+          "release": 2000,
+          "summary": "words",
+          "title": "movie",
+        }
+      }
+    />
+    <ConnectFunction
+      key="69"
+      movie={
+        Object {
+          "backdrop": "https",
+          "genres": Array [
+            "drama",
+          ],
+          "id": 69,
+          "isFavorite": true,
+          "poster": "https",
+          "rating": 9.2,
+          "release": 2001,
+          "summary": "MoreWords",
+          "title": "nextMovie",
+        }
+      }
+    />
+  </section>
+</main>
+`;

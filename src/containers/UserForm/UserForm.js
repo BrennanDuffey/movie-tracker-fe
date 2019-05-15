@@ -5,7 +5,7 @@ import { loginUser, isLoading, errorMessage, setFavorites } from '../../actions'
 import { agnosticFetch } from '../../utils/apiCalls/apiCalls'
 
 
-class UserForm extends Component {
+export class UserForm extends Component {
   constructor() {
     super()
     this.state= {

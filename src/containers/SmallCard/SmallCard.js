@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Route, NavLink} from 'react-router-dom';
 import { toggleFavorite, grabCurrMovie, errorMessage } from '../../actions';
@@ -106,6 +107,16 @@ export class SmallCard extends Component {
       </NavLink>
     );
   }
+}
+
+SmallCard.propTypes={
+  errorMessage: PropTypes.string,
+  grabCurrMovie: PropTypes.func,
+  movie: PropTypes.object,
+  movies: PropTypes.array,
+  setErrorMessage: PropTypes.func,
+  toggleFavorite: PropTypes.func,
+  user: PropTypes.object
 }
 
 const mapStateToProps = (state) => ({

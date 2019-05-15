@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addMovies } from '../../actions';
 import SmallCard from '../SmallCard/SmallCard';
 import butterflixMascot from '../../images/character.svg';
 
-class CardContainer extends Component {
+export class CardContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -37,12 +37,15 @@ class CardContainer extends Component {
   }
 }
 
+CardContainer.propTypes={
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  movies: PropTypes.array
+}
+
 export const mapStateToProps = (state) => ({
   movies: state.movies
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies) => dispatch(addMovies(movies))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
+export default connect(mapStateToProps)(CardContainer);
