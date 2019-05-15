@@ -12,8 +12,6 @@ export class CardContainer extends Component {
   }
   render() {
     let smallCards;
-    console.log(this.props.movies)
-
     !this.props.movies.length
       ? smallCards = null 
       : smallCards = this.props.movies.map(movie=>
