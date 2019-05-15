@@ -1,19 +1,14 @@
 import moviesReducer from './moviesReducer';
-import * as actions from './';
+import * as actions from '../actions';
 
-describe('moviesReducer', ()=>{
-
+describe('moviesReducer', () => {
   it('should return the initial state', ()=>{
-    //Setup
     const expected = [];
-    //Execution
     const result = moviesReducer(undefined, {});
-    //Expectation
     expect(result).toEqual(expected);
   });
 
-  it('should return an action object with a an array of movies and type of FETCH_MOVIES', ()=>{
-    //Setup
+  it('should update state correction with addMovies action', ()=>{
     const movies = [{
       title: 'Harry Potter',
       release: 2006, 
@@ -24,10 +19,61 @@ describe('moviesReducer', ()=>{
       id: 2,
       genres: ['scifi', 'adventure']
     }];
-    const expected = {type: 'FETCH_MOVIES', movies};
-    //Execution
-    const result = actions.addMovies(movies);
-    //Expectation
+    const expected = movies;
+    const result = moviesReducer(undefined, actions.addMovies(movies));
     expect(result).toEqual(expected);
-  })
-})
+  });
+
+  it('Should be able to toggle isFavorite of a movie', () => {
+    const previousState = [{
+      id: 2,
+      isFavorite: false
+    }];
+    const expected = [{
+      id: 2,
+      isFavorite: true
+    }];
+    const result = moviesReducer(previousState, actions.toggleFavorite(2));
+    expect(result).toEqual(expected);
+  });
+
+  it('Should be able to add all favorited movies to the array', () => {
+    const previousState = [];
+    const mockFavorites = [{
+      id:2
+    }]
+    const movies = [
+      {
+        title: 'Harry Potter',
+        release: 2006, 
+        poster: 'fds35235/',
+        backdrop: '3425/',
+        rating: 3.7,
+        summary: 'Youre a wizard harry',
+        id: 2,
+        genres: ['scifi', 'adventure']
+      },
+      {
+        title: 'Harry Potter',
+        release: 2006, 
+        poster: 'fds35235/',
+        backdrop: '3425/',
+        rating: 3.7,
+        summary: 'Youre a wizard harry',
+        id: 3,
+        genres: ['scifi', 'adventure'],
+      }
+    ];
+    const expected = [{
+      title: 'Harry Potter',
+      release: 2006, 
+      poster: 'fds35235/',
+      backdrop: '3425/',
+      rating: 3.7,
+      summary: 'Youre a wizard harry',
+      id: 2,
+      genres: ['scifi', 'adventure']
+    }];
+    const result = moviesReducer(previousState, actions.setFavorites(mockFavorites));
+  });
+});

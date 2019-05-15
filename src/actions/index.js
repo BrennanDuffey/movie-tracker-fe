@@ -3,7 +3,7 @@ export const addMovies = (movies) => ({
   movies
 });
 
-export const grabCurrMovie =(movie)=>({
+export const grabCurrMovie = (movie) => ({
   type: "GRAB_MOVIE",
   movie
 });
