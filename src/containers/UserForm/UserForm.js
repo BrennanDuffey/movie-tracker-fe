@@ -44,7 +44,7 @@ class UserForm extends Component {
       })
       .catch(error => {
         this.props.setErrorMessage('Incorrect email/password combination')
-        window.alert(this.props.errorMessage)
+        window.alert('Incorrect email/password combination')
       });
   };
 
@@ -65,7 +65,7 @@ class UserForm extends Component {
       this.setState({successfulLogin: true})
     } catch (error) {
       this.props.setErrorMessage('Email already used for an account')
-      window.alert(this.props.errorMessage)
+      window.alert('Email already used for an account')
     }
     this.props.isLoading(false)
   };
