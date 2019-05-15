@@ -49,15 +49,15 @@ Created by:
 
   ### Page
   
-<img width="1000" alt="image" src="https://user-images.githubusercontent.com/23123990/57737325-8580d500-7668-11e9-8a56-74b95717838d.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/23123990/57737325-8580d500-7668-11e9-8a56-74b95717838d.png">
 
-<img width="1000" alt="image" src="https://user-images.githubusercontent.com/23123990/57737407-da245000-7668-11e9-9fe4-3b0f398a5d0b.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/23123990/57737407-da245000-7668-11e9-9fe4-3b0f398a5d0b.png">
 
 <img width="1439" alt="image" src="https://user-images.githubusercontent.com/23123990/57737623-8d8d4480-7669-11e9-8951-96403ccc2e33.png">
 
   - Gif Demo
   
-  <img width="1439" alt="image" src="https://media.giphy.com/media/dZX36qqyVF2itSWzyi/giphy.mp4">
+  <img width="1439" alt="gif" src="https://media.giphy.com/media/dZX36qqyVF2itSWzyi/giphy.gif">
 
 
 ## Credits:
