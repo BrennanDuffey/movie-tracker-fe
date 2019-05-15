@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import { loginUser, isLoading, errorMessage, setFavorites } from '../../actions';
@@ -133,6 +134,16 @@ export class UserForm extends Component {
       </section>
     );
   }
+}
+
+UserForm.propTypes={
+  history: PropTypes.object,
+  isLoading: PropTypes.func,
+  location: PropTypes.object,
+  loginUser: PropTypes.func,
+  match: PropTypes.object,
+  setErrorMessage: PropTypes.func,
+  setFavorites:PropTypes.func
 }
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,43 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BigCard should match snapshot 1`] = `
-<section
-  className="BigCard"
->
-  <article
-    className="big-main"
+<main>
+  <section
+    className="BigCard"
   >
     <img
       alt="Backdrop Unavailable"
       className="backdrop"
       src="http"
     />
-    <h2>
-      movie
-      <span>
-        (
+    <article
+      className="big-content"
+    >
+      <h2>
+        movie
+      </h2>
+      <h4>
         2000
-        )
-      </span>
-    </h2>
-    <p>
-      words
-    </p>
-    <p>
-      action
-    </p>
-  </article>
-  <h2>
-    9.9
-  </h2>
-  <img
-    alt="movie"
-    src="http"
-  />
-  <NavLink
-    to="/"
-  >
-    X
-  </NavLink>
-</section>
+      </h4>
+      <div
+        className="big-subcontent"
+      >
+        <p>
+          words
+        </p>
+        <p>
+          action
+        </p>
+      </div>
+      <h3>
+        Avg Score: 
+        9.9
+      </h3>
+    </article>
+    <button
+      className="faveBtn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-star fave-false"
+      />
+    </button>
+    <NavLink
+      className="close"
+      to="/"
+    >
+      <i
+        className="fas fa-times-circle"
+      />
+    </NavLink>
+  </section>
+</main>
 `;
