@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Redirect } from "react-router-dom";
 import {signoutUser} from '../../actions';
 
-class Signout extends Component {
+export class Signout extends Component {
   constructor(){
     super()
     this.state={
@@ -13,8 +13,8 @@ class Signout extends Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    this.props.signoutUser();
     this.setState({loggedOut: true})
+    this.props.signoutUser();
   }
   render() {
     if (this.state.loggedOut) {

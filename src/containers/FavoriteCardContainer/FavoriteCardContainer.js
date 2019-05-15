@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SmallCard from '../SmallCard/SmallCard';
 import butterflixMascot from '../../images/character.svg';
 
-const FavoriteCardContainer = ({ movies }) => {
+export const FavoriteCardContainer = ({ movies }) => {
   
   let smallCards = movies
     .filter(movie => movie.isFavorite)
@@ -25,6 +26,15 @@ const FavoriteCardContainer = ({ movies }) => {
         </section>
       </main>
   )
+}
+
+FavoriteCardContainer.propTypes={
+  dispatch: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  movies: PropTypes.array,
+  user: PropTypes.object
 }
 
 const mapStateToProps = (state) => ({
