@@ -53,7 +53,7 @@ Created by:
 
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/23123990/57737407-da245000-7668-11e9-9fe4-3b0f398a5d0b.png">
 
-<img width="1439" alt="image" src="https://user-images.githubusercontent.com/23123990/57737623-8d8d4480-7669-11e9-8951-96403ccc2e33.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/23123990/57737623-8d8d4480-7669-11e9-8951-96403ccc2e33.png">
 
   - Gif Demo
   
