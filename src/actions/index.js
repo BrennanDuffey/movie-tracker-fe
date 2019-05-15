@@ -35,4 +35,4 @@ export const signoutUser =()=>({
 export const setFavorites = (favorites) => ({
   type: "SET_FAVORITES",
   favorites
-})
+});
