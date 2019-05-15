@@ -2,7 +2,7 @@
   "name": "movie-tracker-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://brennanduffey.github.io/butterflix",
+  "homepage": "http://brennanduffey.github.io/movie-tracker-fe",
   "dependencies": {
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
@@ -21,7 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "./node_modules/eslint/bin/eslint yourfile.js"
+    "eslint": "./node_modules/eslint/bin/eslint yourfile.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,7 +45,8 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.13.0"
+    "eslint-plugin-react": "^7.13.0",
+    "gh-pages": "^2.0.1"
   },
   "jest": {
     "snapshotSerializers": [
