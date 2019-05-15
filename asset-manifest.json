@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/butterflix/static/css/main.dc101346.chunk.css",
-    "main.js": "/butterflix/static/js/main.f5b2bc88.chunk.js",
-    "main.js.map": "/butterflix/static/js/main.f5b2bc88.chunk.js.map",
-    "runtime~main.js": "/butterflix/static/js/runtime~main.ee4ff867.js",
-    "runtime~main.js.map": "/butterflix/static/js/runtime~main.ee4ff867.js.map",
-    "static/js/2.35235ba7.chunk.js": "/butterflix/static/js/2.35235ba7.chunk.js",
-    "static/js/2.35235ba7.chunk.js.map": "/butterflix/static/js/2.35235ba7.chunk.js.map",
-    "index.html": "/butterflix/index.html",
-    "precache-manifest.431561daea25f1ffa175a8fc867b412e.js": "/butterflix/precache-manifest.431561daea25f1ffa175a8fc867b412e.js",
-    "service-worker.js": "/butterflix/service-worker.js",
-    "static/css/main.dc101346.chunk.css.map": "/butterflix/static/css/main.dc101346.chunk.css.map",
-    "static/media/character.svg": "/butterflix/static/media/character.054c9f72.svg"
+    "main.css": "/movie-tracker-fe/static/css/main.dc101346.chunk.css",
+    "main.js": "/movie-tracker-fe/static/js/main.29957733.chunk.js",
+    "main.js.map": "/movie-tracker-fe/static/js/main.29957733.chunk.js.map",
+    "runtime~main.js": "/movie-tracker-fe/static/js/runtime~main.fb3e4a12.js",
+    "runtime~main.js.map": "/movie-tracker-fe/static/js/runtime~main.fb3e4a12.js.map",
+    "static/js/2.35235ba7.chunk.js": "/movie-tracker-fe/static/js/2.35235ba7.chunk.js",
+    "static/js/2.35235ba7.chunk.js.map": "/movie-tracker-fe/static/js/2.35235ba7.chunk.js.map",
+    "index.html": "/movie-tracker-fe/index.html",
+    "precache-manifest.bd221df23e21183168ba6a0dca0a07b8.js": "/movie-tracker-fe/precache-manifest.bd221df23e21183168ba6a0dca0a07b8.js",
+    "service-worker.js": "/movie-tracker-fe/service-worker.js",
+    "static/css/main.dc101346.chunk.css.map": "/movie-tracker-fe/static/css/main.dc101346.chunk.css.map",
+    "static/media/character.svg": "/movie-tracker-fe/static/media/character.054c9f72.svg"
   }
 }
