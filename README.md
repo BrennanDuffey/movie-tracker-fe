@@ -64,8 +64,9 @@ Created by:
  Turing truly is a great environment to start this journey into our tech careers! The ecosystem of other developers all struggling and learning together builds such a strong emphasis on helping others and yourself to achieve success!!!
 
 © [Justin Pyktel](https://github.com/SiimonStark)
-    "Ask me about the Mascot inspiration!"
 © [Brennan Duffey](https://github.com/)
+
+"Ask me about the Mascot inspiration!"
 
 ###
 
