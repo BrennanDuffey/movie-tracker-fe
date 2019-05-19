@@ -7,9 +7,10 @@ import BigCard from "../BigCard/BigCard";
 import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import UserForm from '../UserForm/UserForm';
 import Signout from '../Signout/Signout';
-import { fetchMovies } from '../../utils/apiCalls/apiCalls';
+// import { fetchMovies } from '../../utils/apiCalls/apiCalls';
 import { addMovies } from '../../actions';
 import { cleanFetchMovies } from '../../utils/cleaners/cleanMovies';
+import { thunkFetchMovies } from '../../thunks/fetchMovies'
 
 export class App extends Component {
   constructor() {
@@ -17,11 +18,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    fetchMovies()
-      .then(list => list.results)
-      .then(movies=> cleanFetchMovies(movies))
-      .then(cleanMovies => this.props.addMovies(cleanMovies))
-      .catch(error => console.log('Error in fetching movies from DB'))
+    this.props.thunkFetchMovies()
   }
 
   render(){
@@ -38,9 +35,14 @@ export class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
+  errorMessage: state.errorMessage
+});
+
 
 export const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies) => dispatch(addMovies(movies))
+  thunkFetchMovies: () => dispatch(thunkFetchMovies())
 });
 
 

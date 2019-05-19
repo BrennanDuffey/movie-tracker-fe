@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {Route, NavLink} from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import { toggleFavorite, grabCurrMovie, errorMessage } from '../../actions';
 import BigCard from '../BigCard/BigCard';
 import { deleteFavoriteFetch, agnosticFetch } from '../../utils/apiCalls/apiCalls'
